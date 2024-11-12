@@ -11,7 +11,10 @@
    * [Хабр](https://habr.com/ru/articles/857402/)
    * [Смартлаб](https://smart-lab.ru/mobile/users/empenoso/blog/)     
 
-2. ~~Продолжение~~
+2. ~~Как я готовил исторические данные по акциям Московской биржи для бэктестинга стратегии в backtrader на Python~~
    * [Хабр](https://habr.com/ru/users/empenoso/)
    * [Смартлаб](https://smart-lab.ru/mobile/users/empenoso/blog/)
 
+3. ~~Продолжение~~
+   * [Хабр](https://habr.com/ru/users/empenoso/)
+   * [Смартлаб](https://smart-lab.ru/mobile/users/empenoso/blog/)
