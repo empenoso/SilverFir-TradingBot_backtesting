@@ -9,7 +9,7 @@
 
 1. Мой первый и неудачный опыт поиска торговой стратегии для Московской биржи:
    * [Хабр](https://habr.com/ru/articles/857402/)
-   * [Смартлаб](https://smart-lab.ru/mobile/users/empenoso/blog/)     
+   * [Смартлаб](https://smart-lab.ru/mobile/topic/1083556/)     
 
 2. ~~Как я готовил исторические данные по акциям Московской биржи для бэктестинга стратегии в backtrader на Python~~
    * [Хабр](https://habr.com/ru/users/empenoso/)
