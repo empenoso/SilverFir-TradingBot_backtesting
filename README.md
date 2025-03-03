@@ -11,7 +11,7 @@
    * [Хабр](https://habr.com/ru/articles/857402/)
    * [Смартлаб](https://smart-lab.ru/mobile/topic/1083556/)     
 
-2. ~~Тестирование дневных торговых стратегий на Python через backtesting.py~~
+2. ~~Анализ торговых стратегий для акций Мосбиржи на дневных интервалах с помощью Python через backtesting.py~~
    * [Хабр](https://habr.com/ru/users/empenoso/)
    * [Смартлаб](https://smart-lab.ru/mobile/users/empenoso/blog/)
 
