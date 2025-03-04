@@ -11,8 +11,8 @@
    * [Хабр](https://habr.com/ru/articles/857402/)
    * [Смартлаб](https://smart-lab.ru/mobile/topic/1083556/)     
 
-2. ~~Анализ торговых стратегий для акций Мосбиржи на дневных интервалах с помощью Python через библиотеку backtesting.py~~
-   * [Хабр](https://habr.com/ru/users/empenoso/)
+2. ~~Тестирование торговой стратегии нового индикатора Джона Ф. Элерса на Python для дневных данных Мосбиржи через библиотеку backtesting.py~~
+   * [Хабр](https://habr.com/ru/articles/887440/)
    * [Смартлаб](https://smart-lab.ru/mobile/users/empenoso/blog/)
 
 3. ~~Продолжение~~
