@@ -11,10 +11,10 @@
    * [Хабр](https://habr.com/ru/articles/857402/)
    * [Смартлаб](https://smart-lab.ru/mobile/topic/1083556/)     
 
-2. ~~Тестирование торговой стратегии нового индикатора Джона Ф. Элерса на Python для дневных данных Мосбиржи через библиотеку backtesting.py~~
+2. Тестирование торговой стратегии нового индикатора Джона Ф. Элерса на Python для дневных данных Мосбиржи через библиотеку backtesting.py
    * [Хабр](https://habr.com/ru/articles/887440/)
-   * [Смартлаб](https://smart-lab.ru/mobile/users/empenoso/blog/)
+   * [Смартлаб](https://smart-lab.ru/mobile/topic/1126711/)
 
-3. ~~Продолжение~~
+3. ~~Фундаментальный скринер~~
    * [Хабр](https://habr.com/ru/users/empenoso/)
    * [Смартлаб](https://smart-lab.ru/mobile/users/empenoso/blog/)
