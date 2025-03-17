@@ -1,0 +1,77 @@
+[{
+        "ticker": "SiH5",
+        "uid": "8f99f804-abc1-4339-8c51-521c3e78cd13"
+    },
+    {
+        "ticker": "NGH5",
+        "uid": "b08e6267-d353-4686-8518-96968b09cdff"
+    }, {
+        "ticker": "CRH5",
+        "uid": "db4b4990-0864-4595-a238-c5922723d84b"
+    }, {
+        "ticker": "RIH5",
+        "uid": "1d64b9b7-9ce7-4483-9e33-646950ea591a"
+    }, {
+        "ticker": "MXH5",
+        "uid": "b77e4726-6e74-4a87-a789-602b2eab52d3"
+    }, {
+        "ticker": "GRNT",
+        "uid": "5a3a39f4-3bd5-47a2-8719-ce3e203fd10d"
+    },
+    {
+        "ticker": "VTBR",
+        "uid": "8e2b0325-0292-4654-8a18-4f63ed3b0e09"
+    },
+    {
+        "ticker": "MTLR",
+        "uid": "eb4ba863-e85f-4f80-8c29-f2627938ee58"
+    },
+    {
+        "ticker": "UWGN",
+        "uid": "a8dc188b-cae8-40c0-99e8-f561f4339751"
+    },
+    {
+        "ticker": "RNFT",
+        "uid": "c7485564-ed92-45fd-a724-1214aa202904"
+    },
+    {
+        "ticker": "EUTR",
+        "uid": "02b2ea14-3c4b-47e8-9548-45a8dbcc8f8a"
+    },
+    {
+        "ticker": "SNGSP",
+        "uid": "a797f14a-8513-4b84-b15e-a3b98dc4cc00"
+    },
+    {
+        "ticker": "GAZP",
+        "uid": "962e2a95-02a9-4171-abd7-aa198dbe643a"
+    },
+    {
+        "ticker": "SGZH",
+        "uid": "7bedd86b-478d-4742-a28c-29d27f8dbc7d"
+    },
+    {
+        "ticker": "ROSN",
+        "uid": "fd417230-19cf-4e7b-9623-f7c9ca18ec6b"
+    },
+    {
+        "ticker": "SBER",
+        "uid": "e6123145-9665-43e0-8413-cd61b8aa9b13"
+    },
+    {
+        "ticker": "AFLT",
+        "uid": "1c69e020-f3b1-455c-affa-45f8b8049234"
+    },
+    {
+        "ticker": "VKCO",
+        "uid": "b71bd174-c72c-41b0-a66f-5f9073e0d1f5"
+    },
+    {
+        "ticker": "RUAL",
+        "uid": "f866872b-8f68-4b6e-930f-749fe9aa79c0"
+    },
+    {
+        "ticker": "TATN",
+        "uid": "88468f6c-c67a-4fb4-a006-53eed803883c"
+    }
+]
