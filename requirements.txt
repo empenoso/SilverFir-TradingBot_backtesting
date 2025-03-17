@@ -1,6 +1,0 @@
-pandas
-backtesting
-aiohttp
-aiomoex
-ta-lib
-numpy
