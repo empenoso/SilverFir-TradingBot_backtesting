@@ -10,8 +10,8 @@ from datetime import time
 
 class RandomEntryStrategy(Strategy):
     # Параметры стратегии
-    trail_percent = 0.001  # Процент трейлинг-стопа
-    entry_probability = 0.5  # Вероятность входа в рынок
+    trail_percent = 0.002  # Процент трейлинг-стопа 2%
+    entry_probability = 0.5  # Вероятность входа в рынок 50/50
     entry_time = "10:00"  # Время для входа в позицию
     exit_time = "20:40"  # Время для выхода из позиции
 

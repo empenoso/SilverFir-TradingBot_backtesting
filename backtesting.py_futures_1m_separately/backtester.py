@@ -42,7 +42,7 @@ async def run_backtest(ticker):
     bt = Backtest(
         df,
         DynamicStrategyClass,
-        cash=100_000, 
+        cash=1_000_000, 
         commission=0.002,
         margin=0.1,  # Требование к первоначальной марже 10%
         trade_on_close=True,
