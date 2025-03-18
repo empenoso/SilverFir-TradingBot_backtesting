@@ -2,6 +2,9 @@
 
 # Запускает сканирование и тестирование
 
+# Подробнее о моих поисках торговых стратегий в статьях на Хабре и Смартлабе: 
+# https://github.com/empenoso/SilverFir-TradingBot_backtesting
+
 import asyncio
 from backtester import run_backtest
 

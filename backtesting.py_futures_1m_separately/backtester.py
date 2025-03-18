@@ -1,4 +1,7 @@
-# Запуск бэктеста
+# Запуск бэктеста backtesting.py
+
+# Подробнее о моих поисках торговых стратегий в статьях на Хабре и Смартлабе: 
+# https://github.com/empenoso/SilverFir-TradingBot_backtesting
 
 import asyncio
 import pandas as pd

@@ -1,6 +1,9 @@
 # 5-6 идей для построения прибыльной торговой системы - Александр Резвяков
 # https://smart-lab.ru/blog/1111228.php
 
+# Подробнее о моих поисках торговых стратегий в статьях на Хабре и Смартлабе: 
+# https://github.com/empenoso/SilverFir-TradingBot_backtesting
+
 from backtesting import Strategy
 import pandas as pd
 import numpy as np

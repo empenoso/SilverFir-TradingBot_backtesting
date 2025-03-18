@@ -1,3 +1,8 @@
+# Модуль загрузки данных из CSV файла в формат backtesting.py
+
+# Подробнее о моих поисках торговых стратегий в статьях на Хабре и Смартлабе: 
+# https://github.com/empenoso/SilverFir-TradingBot_backtesting
+
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
