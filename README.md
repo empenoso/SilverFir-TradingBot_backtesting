@@ -17,7 +17,7 @@
 
 1. Тестировании торговой системы со случайными сигналами на вход для фьючерсов Московской биржи при помощи Python через библиотеку backtesting.py
    * [Хабр](https://habr.com/ru/articles/891786/)
-   * [Смартлаб](https://smart-lab.ru/mobile/users/empenoso/blog/)
+   * [Смартлаб](https://smart-lab.ru/mobile/topic/1130044/)
 
 3. ~~Фундаментальный анализ акций в РФ и США~~
    * [Хабр](https://habr.com/ru/articles/889932/)
