@@ -1,31 +1,44 @@
 # модуль который выбирает только нужный интервал котировок при загрузке минуток с Т-Инвест АПИ
 
 # Подробнее о моих поисках торговых стратегий в статьях на Хабре и Смартлабе: 
+# https://github.com/empenoso/SilverFir-TradingBot_backtesting
 
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 import calendar
-from datetime import datetime
+from datetime import datetime, timedelta
 import pandas as pd
 import os
 import json
 import time
+import pytz  # Добавляем библиотеку для работы с часовыми поясами
 
 # Начало времени
 start_time = time.perf_counter()
 
-# Путь к директории с файлами данных
-data_dir = "./data/1min"
+# # Automatically construct the correct path
+# base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Automatically construct the correct path
-base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Определяем базовый путь проекта
+base_dir = "d:\\SynologyDrive\\rabota\\2018_investments\\SilverFir-TradingBot_backtesting\\backtesting.py_futures_1m_separately"
+
+# Путь к директории с файлами данных
+data_dir = os.path.join(base_dir, "data", "1min")
 
 # Загрузка JSON с соответствиями uid и тикеров
 def load_ticker_mapping(mapping_file):
     """Загружает и возвращает словарь сопоставлений uid и тикеров"""
-    with open(mapping_file, 'r', encoding='utf-8') as file:
-        mapping_data = json.load(file)
-    return {item['uid']: item['ticker'] for item in mapping_data}
+    print(f"Загрузка маппингов из: {mapping_file}")
+    try:
+        with open(mapping_file, 'r', encoding='utf-8') as file:
+            mapping_data = json.load(file)
+        return {item['uid']: item['ticker'] for item in mapping_data}
+    except FileNotFoundError:
+        print(f"Файл маппингов не найден: {mapping_file}")
+        raise
+    except json.JSONDecodeError:
+        print(f"Ошибка формата JSON в файле маппингов: {mapping_file}")
+        raise
 
 # Функция для чтения данных из CSV файла
 def load_data(file_name, ticker_mapping):
@@ -38,7 +51,13 @@ def load_data(file_name, ticker_mapping):
     
     # Преобразуем колонку timestamp в формат datetime
     try:
+        # Предполагаем, что входные данные в UTC (Z означает UTC)
         data['timestamp'] = pd.to_datetime(data['timestamp'], format='%Y-%m-%dT%H:%M:%SZ')
+        
+        # Преобразуем время из UTC в UTC+3 (московское время)
+        moscow_tz = pytz.timezone('Europe/Moscow')
+        data['timestamp'] = data['timestamp'].dt.tz_localize('UTC').dt.tz_convert(moscow_tz).dt.tz_localize(None)
+        
     except ValueError as e:
         print(f"Ошибка в парсинге даты: {e}")
     
@@ -60,7 +79,6 @@ def load_data(file_name, ticker_mapping):
     # Возвращаем только необходимые столбцы
     return data[['ticker', 'Open', 'High', 'Low', 'Close', 'Volume']]
 
-# Функция для фильтрации данных по дате
 # Функция для фильтрации данных по дате с отладочной информацией
 def filter_by_date(data, start_date, end_date):
     """Фильтрует данные по указанному диапазону дат"""
@@ -79,7 +97,7 @@ def filter_by_date(data, start_date, end_date):
 # Функция для записи данных в CSV файл
 def save_filtered_data(data, ticker):
     """Сохраняет отфильтрованные данные в файл"""
-    output_file = f"./data/{ticker}_1min.csv"
+    output_file = os.path.join(base_dir, "data", f"{ticker}_1min.csv")
 
     # Проверяем, существует ли уже файл, чтобы не дублировать заголовок
     file_exists = os.path.isfile(output_file)
@@ -96,57 +114,89 @@ def save_filtered_data(data, ticker):
     
     print(f"Добавлены данные для {ticker} в {output_file}")
 
-
 # Функция для обработки всех файлов
 def process_data(ticker_mapping, start_date, end_date):
     """Загружает, фильтрует и сохраняет данные"""
+    # Проверяем существование директории
+    if not os.path.exists(data_dir):
+        print(f"Директория с минутными данными не найдена: {data_dir}")
+        return
+    
     file_list = [file for file in os.listdir(data_dir) if file.endswith('.csv')]
+    if not file_list:
+        print(f"В директории {data_dir} не найдено CSV файлов")
+        return
+        
     total_files = len(file_list)
+    print(f"Найдено {total_files} файлов для обработки")
     
     for index, file_name in enumerate(file_list, start=1):
+        print(f"Обработка файла: {file_name}")
         # Чтение данных
-        data = load_data(file_name, ticker_mapping)
-        if data is None:
+        try:
+            data = load_data(file_name, ticker_mapping)
+            if data is None:
+                print(f"Пропускаем файл {file_name}: не удалось сопоставить UID")
+                continue
+        except Exception as e:
+            print(f"Ошибка при загрузке файла {file_name}: {e}")
             continue
         
         # Фильтрация данных по дате
-        data_filtered = filter_by_date(data, start_date, end_date)
-        if data_filtered.empty:
-            print(f"Данные для файла {file_name} не содержат записей в указанный период.")
+        try:
+            data_filtered = filter_by_date(data, start_date, end_date)
+            if data_filtered.empty:
+                print(f"Данные для файла {file_name} не содержат записей в указанный период.")
+                continue
+        except Exception as e:
+            print(f"Ошибка при фильтрации данных файла {file_name}: {e}")
             continue
         
         # Получение тикера
         ticker = data_filtered['ticker'].iloc[0]
         
         # Сохранение данных
-        save_filtered_data(data_filtered, ticker)
+        try:
+            save_filtered_data(data_filtered, ticker)
+        except Exception as e:
+            print(f"Ошибка при сохранении данных файла {file_name}: {e}")
+            continue
         
         # Вывод прогресса
         completion_percentage = (index / total_files) * 100
         print(f"Обработано {index} из {total_files} файлов. Завершено {completion_percentage:.2f}%.")
 
-# Пример использования
-mapping_file = os.path.join(base_dir, 'data', '+mappings.json')
-ticker_mapping = load_ticker_mapping(mapping_file)
+# Основная функция
+def main():
+    try:
+        # Путь к файлу маппингов
+        mapping_file = os.path.join(base_dir, 'data', '+mappings.json')
+        print(f"Файл маппингов: {mapping_file}")
+        
+        # Проверяем существование файла маппингов
+        if not os.path.exists(mapping_file):
+            print(f"Файл маппингов не найден: {mapping_file}")
+            return
+            
+        ticker_mapping = load_ticker_mapping(mapping_file)
 
-start_date = '2025-03-10'
-end_date = '2025-03-14'
+        start_date = '2025-03-10'
+        end_date = '2025-03-20'
 
-# # Преобразуем строку в объект datetime
-# date_obj = datetime.strptime(start_date, '%Y-%m-%d')
-# # Определяем последний день месяца
-# last_day = calendar.monthrange(date_obj.year, date_obj.month)[1]
-# # Формируем end_date с последним днем месяца
-# end_date = date_obj.replace(day=last_day).strftime('%Y-%m-%d')
+        print(f"start_date = {start_date}")
+        print(f"end_date = {end_date}\n")
 
-print(f"start_date = {start_date}")
-print(f"end_date = {end_date}\n")
+        # Процесс обработки с дополнительными проверками
+        process_data(ticker_mapping, start_date, end_date)
 
-# Процесс обработки с дополнительными проверками
-process_data(ticker_mapping, start_date, end_date)
+    except Exception as e:
+        print(f"Критическая ошибка: {e}")
+    finally:
+        # Время выполнения
+        total_end_time = time.perf_counter()
+        elapsed_time = (total_end_time - start_time) / 60
+        print(f"\nВремя выполнения: {elapsed_time:.4f} минут.")
 
-
-# Время выполнения
-total_end_time = time.perf_counter()
-elapsed_time = (total_end_time - start_time) / 60
-print(f"\nВремя выполнения: {elapsed_time:.4f} минут.")
+# Запуск основной функции
+if __name__ == "__main__":
+    main()
