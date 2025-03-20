@@ -1,0 +1,6 @@
+pandas
+numpy
+backtesting
+matplotlib
+asyncio
+pytz
