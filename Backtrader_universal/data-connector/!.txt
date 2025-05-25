@@ -1,0 +1,14 @@
+https://github.com/cia76/TinkoffPy
+
+Установить пакет в режиме разработки:
+
+pip install -e .
+
+
+Удалить пакет :
+
+pip uninstall TinkoffPy
+
+---
+
+Секретный токен в файле TinkoffPy\TinkoffPy\Config.py

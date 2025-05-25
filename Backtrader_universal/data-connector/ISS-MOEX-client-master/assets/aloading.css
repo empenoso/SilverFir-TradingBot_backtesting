@@ -1,0 +1,103 @@
+*[class="output-example-loading"]::before {
+    content: "Инструмент:"; /* Установка контента в пробел для состояния бездействия */
+    display: inline-block;
+    /*font-family: 'Calibri, sans-serif' !important;*/
+    font-size: 1em;
+    /*visibility: visible;*/
+    opacity: 1; /* Устанавливаем начальное значение непрозрачности в 0 */
+    transition: opacity 0.3s ease; /* Добавляем плавную анимацию для свойства opacity */
+}
+
+*[class="output-example-loading"][data-dash-is-loading="true"]{
+    visibility: visible
+}
+*[class="output-example-loading"][data-dash-is-loading="true"]::before{
+    content: "Loading...";
+    display: inline-block;
+    color: red !important; /* Цвет текста */
+    /*font-family: 'Calibri, sans-serif' !important;*/
+    font-size: 1em;
+    font-weight: bold;
+    /*visibility: visible;*/
+    opacity: 1; /* Устанавливаем значение непрозрачности в 1 для отображения */
+
+}
+
+/*Работаем с элементом DropDown*/
+
+.DateInput {
+    height: 34px;
+    width: 40%;
+}
+
+.DateInput_input, .DateInput_input_1 {
+    height: 34px;
+    width: 100%;
+    color: inherit !important;
+    text-align: center;
+    font-size: inherit !important;
+    font-weight: bold;
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+    text-overflow: ellipsis
+}
+
+.DateRangePicker_picker {
+    top: 36px !important; /* Подберите нужное значение */
+}
+
+.DateInput_fang {
+    top: 25px !important;
+}
+
+/*Работаем с Footer*/
+body {
+    padding-bottom: 60px; /* Высота вашего футера */
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: left;
+    padding: 10px;
+}
+/* .dash-dropdown  {
+    overflow: visible !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+
+}
+
+.Select-multi-value-wrapper {
+    height: 38px;
+}
+
+.Select-input {
+    height: 38px !important;
+}
+.main-container {
+    zoom: 1;
+  }*/
+
+  @media (min-width: 475px) {
+    .main-container {
+      zoom: 4;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .main-container {
+      zoom: 3;
+    }
+  }
+/* Тонкий ползунок вертикальной прокрутки */
+::-webkit-scrollbar {
+    width: 6px; /* Измените эту ширину по вашему усмотрению */
+}
+
+/* Ползунок для прокрутки */
+::-webkit-scrollbar-thumb {
+    background-color: #D3D3D3;
+}

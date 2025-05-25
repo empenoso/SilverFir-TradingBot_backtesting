@@ -1,0 +1,7 @@
+config.py
+config_repo.py
+dns_test_w1.py
+/.tmp.drivedownload/
+/.tmp.driveupload/
+/cache/
+/venv_new/
