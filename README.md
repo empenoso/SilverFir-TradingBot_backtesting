@@ -7,6 +7,10 @@
 
 ## Подробное описание в статьях:
 
+1. ~~Хватит тестировать на мусоре! Python-скрипт для отбора ликвидных акций Мосбиржи под Backtrader через библиотку Игоря Чечета~~
+   * [Смартлаб](https://smart-lab.ru/my/empenoso/)
+   * [Хабр](https://habr.com/p/909852/)
+     
 1. Торговый робот без QUIK и Windows: мой путь к Raspberry Pi и Backtrader на Московской бирже
    * [Смартлаб](https://smart-lab.ru/mobile/topic/1156550/)
    * [Хабр](https://habr.com/p/909852/)
