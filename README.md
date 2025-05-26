@@ -19,6 +19,10 @@
    * [Хабр](https://habr.com/ru/articles/891786/)
    * [Смартлаб](https://smart-lab.ru/mobile/topic/1130044/)
 
-3. ~~Фундаментальный анализ акций в РФ и США~~
+1. Фундаментальный анализ акций в РФ и США
    * [Хабр](https://habr.com/ru/articles/889932/)
-   * [Смартлаб](https://smart-lab.ru/mobile/users/empenoso/blog/)
+   * [Смартлаб](https://smart-lab.ru/mobile/topic/1139077/)
+
+1. Pine Script в деле: тестируем стратегию с линейной регрессией и R² (по мотивам S&C из 2007 года) на Московской Бирже   
+   * [Смартлаб](https://smart-lab.ru/mobile/topic/1153389/)
+   * [Хабр](https://habr.com/p/907682/)
